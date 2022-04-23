@@ -1,5 +1,5 @@
 name: App Access Token Action
-description: Mints app specific access tokens for used with the GitHub API
+description: A GitHub Action that can be used to mint scoped credentials for use within your workflow
 runs:
   using: 'node16'
   main: 'dist/index.js'
@@ -7,11 +7,11 @@ inputs:
   app_id:
     description: The app identifier
     required: true
-  installation_id:
-    description: The installation identifier
-    required: true
   private_key:
     description: The private key of the application
+    required: true
+  installation_id:
+    description: The installation identifier
     required: true
 outputs:
   token:

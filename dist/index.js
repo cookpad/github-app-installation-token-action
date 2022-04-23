@@ -17028,10 +17028,9 @@ const main = async () => {
     } catch (error) {
       core.setFailed(error.message)
     }
-  }
+}
 
-// Call the main function to run the action
-main();
+main()
 
 })();
 
