@@ -5,14 +5,26 @@ runs:
   main: 'dist/index.js'
 inputs:
   app_id:
+    required: true
     description: The app identifier
-    required: true
   private_key:
+    required: true
     description: The private key of the application
-    required: true
   installation_id:
-    description: The installation identifier
     required: true
+    description: The installation identifier
+  permissions:
+    required: true
+    default: default
+    description: |
+      The permissions to be granted to the access token. There are two supported values:
+
+      - `default` - Uses the default permissions assigned to the App
+      - A JSON string (i.e `{"contents": "write"}`) - Specific permissions required by your workflow
+        - Note: The app installation must have already been granted these permissions.
+        - Accepted values can be found here: https://docs.github.com/en/rest/apps/apps#create-an-installation-access-token-for-an-app
 outputs:
   token:
-    description: The minted access token
+    description: The generated access token that can be passed into other actions or used with in Git operations.
+  permissions:
+    description: A JSON string containing the permissions granted to the access token.

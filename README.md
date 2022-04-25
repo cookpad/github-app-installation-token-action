@@ -27,9 +27,10 @@ jobs:
           app_id: ${{ secrets.GH_AUTH_APP_ID }}
           private_key: ${{ secrets.GH_AUTH_PRIVATE_KEY }}
           installation_id: ${{ secrets.GH_AUTH_INSTALLATION_ID }}
+          permissions: '{"contents": "read"}' # or 'default'
 
       - name: Checkout Other Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: main
           token: ${{ steps.auth.outputs.token }}
