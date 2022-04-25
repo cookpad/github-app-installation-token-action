@@ -1,6 +1,6 @@
-# App Access Token Action
+# GitHub App Installation Token Action
 
-A GitHub Action that can be used to mint scoped credentials for use within your workflow.
+A GitHub Action that can be used to generate scoped credentials for use within your workflow using an App integration.
 
 A Workflow often needs to authenticate and communicate with GitHub, either via API requests or Git operations. The default `GITHUB_TOKEN` environment variable is great if you only need to access public repositories or the one that the workflow is contained within, but if you need to access other private repositories then you have two options:
 
@@ -21,8 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Authenticate GitHub
-        id: auth
-        uses: cookpad/app-access-token-action@v1
+        id: github-auth
+        uses: cookpad/github-app-installation-token-action@v1
         with:
           app_id: ${{ secrets.GH_AUTH_APP_ID }}
           private_key: ${{ secrets.GH_AUTH_PRIVATE_KEY }}
@@ -33,6 +33,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: main
-          token: ${{ steps.auth.outputs.token }}
+          token: ${{ steps.github-auth.outputs.token }}
           repository: my-org/other-private-repo
 ```
