@@ -1,8 +1,8 @@
 name: GitHub App Installation Token Action
 description: A GitHub Action that can be used to generate scoped credentials for use within your workflow using an App integration.
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: 'node20'
+  main: 'dist/index.mjs'
 inputs:
   app_id:
     required: true

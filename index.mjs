@@ -1,5 +1,5 @@
-const core = require('@actions/core')
-const App = require('@octokit/app').App
+import core from '@actions/core'
+import { App } from '@octokit/app'
 
 const getAuthOptions = (permissions) => {
     // For default permissions, do not pass a value and let the issuer decide.
