@@ -1,5 +1,7 @@
 # GitHub App Installation Token Action
 
+**DEPRECATION NOTICE**: This repository is no longer maintained. Please consider using a similar tool such as <https://github.com/actions/create-github-app-token>.
+
 A GitHub Action that can be used to generate scoped credentials for use within your workflow using an App integration.
 
 A Workflow often needs to authenticate and communicate with GitHub, either via API requests or Git operations. The default `GITHUB_TOKEN` environment variable is great if you only need to access public repositories or the one that the workflow is contained within, but if you need to access other private repositories then you have two options:
